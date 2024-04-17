@@ -1,0 +1,58 @@
+.container-xl {
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Vertically center the container */
+
+}
+
+.register-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    /* Adjust as needed */
+    border: solid;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: white;
+    color: #486bd4;
+
+
+    /* Adjust width as needed */
+
+
+}
+
+.form {
+
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+    gap: 1rem;
+    /* Adjust as needed */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+select {
+    height: 2rem;
+}
+
+button {
+    justify-self: center;
+}
+
+.btn-primary {
+    background-color: #486bd4;
+    font-size: 1.15rem;
+    width: 15rem;
+}

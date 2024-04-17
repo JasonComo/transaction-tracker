@@ -1,0 +1,485 @@
+html {
+    font-size: 16px;
+}
+
+
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #486bd4;
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+.row-nav {
+    height: 5vh;
+    background-color: #486bd4;
+    color: white;
+}
+
+.container-xl {
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    height: 65%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 2vh;
+    grid-row-gap: 2vh;
+}
+
+.spending-breakdown {
+    grid-area: 1 / 1 / 2 / 2;
+    border: solid;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: white;
+    color: #486bd4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.spending-entry p {
+    line-height: 2rem;
+    margin: 0;
+}
+
+.total-expenses {
+    grid-area: 1 / 2 / 2 / 3;
+    border: solid;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: white;
+    color: #486bd4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.largest-expense {
+    grid-area: 1 / 3 / 2 / 4;
+    border: solid;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: white;
+    color: #486bd4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.no-data p,
+.total-expenses p,
+.largest-expense p {
+    font-size: 3rem;
+}
+
+.transaction-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    border: solid;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: white;
+    color: #486bd4;
+}
+
+.form {
+    display: grid;
+    grid-template-rows: repeat(4, auto);
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+select {
+    height: 2rem;
+}
+
+button {
+    height: 2.5rem;
+    justify-self: center;
+
+}
+
+.btn-primary {
+    background-color: #486bd4;
+    font-size: 1.15rem;
+    width: 15rem;
+}
+
+.btn-primary-reverse {
+    background-color: white;
+    color: #486bd4;
+    font-size: 1.15rem;
+    width: 15rem;
+    border: 1px solid #486bd4;
+}
+
+
+.transaction-list {
+    grid-area: 2 / 2 / 3 / 4;
+    border: solid;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: white;
+    color: #486bd4;
+}
+
+.no-transactions-message {
+    color: #486bd4;
+    font-size: 1.15rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.bi-pencil,
+.bi-trash {
+    cursor: pointer;
+}
+
+.bi-pencil {
+    margin-left: 1rem;
+}
+
+
+.transaction-top {
+    color: #486bd4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.15rem;
+    font-weight: bold;
+
+}
+
+.transaction-bottom {
+    font-size: 0.8rem
+}
+
+
+.list-group {
+    height: 25rem;
+    overflow-y: auto;
+}
+
+
+
+.row-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.hello {
+    margin-right: auto;
+}
+
+.sign-out-button {
+    margin-left: auto;
+}
+
+@media screen and (min-width: 1441px) and (max-width: 1920px) {
+    ::-webkit-scrollbar {
+        width: calc(1rem - (0.25*1rem))
+    }
+
+    h3 {
+        font-size: calc(1.75rem - (0.25*1.75rem))
+    }
+
+    .transaction-form,
+    .spending-breakdown p {
+        font-size: calc(1rem - (0.25*1rem))
+    }
+
+    .form-group input,
+    select {
+        height: calc(2rem - (0.35*2rem))
+    }
+
+
+    .btn-primary,
+    .btn-primary-reverse {
+
+        width: calc(15rem - (0.25*15rem));
+    }
+
+    .no-data p,
+    .total-expenses p,
+    .largest-expense p {
+        font-size: calc(3rem - (0.25*3rem))
+    }
+
+    .btn-primary,
+    .btn-primary-reverse,
+    .no-transactions-message,
+    .transaction-top {
+
+        font-size: calc(1.15rem - (0.25*1.15rem))
+    }
+
+    .transaction-bottom {
+        font-size: calc(0.8rem - (0.15*0.8rem))
+    }
+
+    .spending-breakdown,
+    .total-expenses,
+    .largest-expense,
+    .transaction-list {
+        padding: calc(2rem - (0.5*2rem))
+    }
+
+    .row-nav {
+        padding: calc(1rem - (0.*1rem))
+    }
+
+    .form-group label {
+        margin-bottom: calc(0.5rem - (0.5*0.5rem))
+    }
+
+    .bi-pencil {
+        margin-left: calc(1rem - (0.35*1rem))
+    }
+
+    .form {
+        gap: calc(1rem - (0.35*1rem))
+    }
+
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+    ::-webkit-scrollbar {
+        width: calc(1rem - (0.35*1rem))
+    }
+
+    h3 {
+        font-size: calc(1.75rem - (0.35 * 1.75rem));
+    }
+
+    .transaction-form,
+    .spending-breakdown p {
+        font-size: calc(1rem - (0.35 * 1rem));
+    }
+
+    .form-group input,
+    select {
+        height: calc(2rem - (0.45 * 2rem));
+    }
+
+    .btn-primary,
+    .btn-primary-reverse {
+        width: calc(15rem - (0.35 * 15rem));
+    }
+
+    .no-data p,
+    .total-expenses p,
+    .largest-expense p {
+        font-size: calc(3rem - (0.35 * 3rem));
+    }
+
+    .btn-primary,
+    .btn-primary-reverse,
+    .no-transactions-message,
+    .transaction-top {
+        font-size: calc(1.15rem - (0.35 * 1.15rem));
+    }
+
+    .transaction-bottom {
+        font-size: calc(0.8rem - (0.25 * 0.8rem));
+    }
+
+    .spending-breakdown,
+    .total-expenses,
+    .largest-expense,
+    .transaction-list {
+        padding: calc(2rem - (0.6 * 2rem));
+    }
+
+    .row-nav {
+        padding: 0;
+    }
+
+    .form-group label {
+        margin-bottom: calc(0.5rem - (0.6 * 0.5rem));
+    }
+
+    .bi-pencil {
+        margin-left: calc(1rem - (0.45 * 1rem));
+    }
+
+    .form {
+        gap: calc(1rem - (0.45 * 1rem));
+    }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    ::-webkit-scrollbar {
+        width: calc(1rem - (0.45*1rem))
+    }
+
+    h3 {
+        font-size: calc(1.75rem - (0.45 * 1.75rem));
+    }
+
+    .transaction-form,
+    .spending-breakdown p {
+        font-size: calc(1rem - (0.45 * 1rem));
+    }
+
+    .form-group input,
+    select {
+        height: calc(2rem - (0.55 * 2rem));
+    }
+
+    .btn-primary,
+    .btn-primary-reverse {
+        width: calc(15rem - (0.45 * 15rem));
+    }
+
+    .no-data p,
+    .total-expenses p,
+    .largest-expense p {
+        font-size: calc(3rem - (0.45 * 3rem));
+    }
+
+    .btn-primary,
+    .btn-primary-reverse,
+    .no-transactions-message,
+    .transaction-top {
+        font-size: calc(1.15rem - (0.45 * 1.15rem));
+    }
+
+    .transaction-bottom {
+        font-size: calc(0.8rem - (0.35 * 0.8rem));
+    }
+
+    .spending-breakdown,
+    .total-expenses,
+    .largest-expense,
+    .transaction-list {
+        padding: calc(2rem - (0.7 * 2rem));
+    }
+
+    .row-nav {
+        padding: 0;
+    }
+
+    .form-group label {
+        margin-bottom: calc(0.5rem - (0.7 * 0.5rem));
+    }
+
+    .bi-pencil {
+        margin-left: calc(1rem - (0.55 * 1rem));
+    }
+
+    .form {
+        gap: calc(1rem - (0.55 * 1rem));
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    ::-webkit-scrollbar {
+        width: calc(1rem - (0.55*1rem))
+    }
+
+    h3 {
+        font-size: calc(1.75rem - (0.55 * 1.75rem));
+    }
+
+    .transaction-form,
+    .spending-breakdown p {
+        font-size: calc(1rem - (0.55 * 1rem));
+    }
+
+    .form-group input,
+    select {
+        height: calc(2rem - (0.65 * 2rem));
+    }
+
+    .btn-primary,
+    .btn-primary-reverse {
+        width: calc(15rem - (0.55 * 15rem));
+    }
+
+    .no-data p,
+    .total-expenses p,
+    .largest-expense p {
+        font-size: calc(3rem - (0.55 * 3rem));
+    }
+
+    .btn-primary,
+    .btn-primary-reverse,
+    .no-transactions-message,
+    .transaction-top {
+        font-size: calc(1.15rem - (0.55 * 1.15rem));
+    }
+
+    .transaction-bottom {
+        font-size: calc(0.8rem - (0.45 * 0.8rem));
+    }
+
+    .spending-breakdown,
+    .total-expenses,
+    .largest-expense,
+    .transaction-list {
+        padding: calc(2rem - (0.8 * 2rem));
+    }
+
+    .row-nav {
+        padding: 0;
+    }
+
+    .form-group label {
+        margin-bottom: calc(0.5rem - (0.8 * 0.5rem));
+    }
+
+    .bi-pencil {
+        margin-left: calc(1rem - (0.65 * 1rem));
+    }
+
+    .form {
+        gap: calc(1rem - (0.65 * 1rem));
+    }
+}

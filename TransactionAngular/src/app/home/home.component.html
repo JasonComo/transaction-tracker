@@ -1,0 +1,89 @@
+<div class="row-nav">
+    <div class="hello col-lg-4">Hello, {{ username }}</div>
+    <div class="sign-out-button col-lg-8 text-end">
+        <button (click)="signOut()" class="btn btn-primary-reverse">Sign Out</button>
+    </div>
+</div>
+<div class="container-xl">
+    <div class="container">
+        <div class="spending-breakdown">
+            <div class="spending-breakdown-title">
+                <h3>Spending Breakdown</h3>
+            </div>
+            <ng-container *ngIf="!isEmpty(spendingBreakdownByPercent)">
+                <div *ngFor="let entry of spendingBreakdownByPercent | keyvalue" class="spending-entry">
+                    <p>{{ entry.key }}: {{ entry.value }}%</p>
+                </div>
+            </ng-container>
+            <div class="no-data" *ngIf="isEmpty(spendingBreakdownByPercent)">
+                <p>N/A</p>
+            </div>
+
+        </div>
+        <div class="total-expenses">
+            <h3>Total Expenses</h3>
+            <div class="text-center">
+                <p>{{ transactionSum ? '$' + (transactionSum | number:'1.2-2') : 'N/A' }}</p>
+            </div>
+        </div>
+        <div class="largest-expense">
+            <h3>Largest Expense</h3>
+            <p>{{ mostExpensiveTransaction ? '$' + (mostExpensiveTransaction.amount | number:'1.2-2') : 'N/A' }}</p>
+        </div>
+        <div class="transaction-form">
+            <form (submit)="createOrUpdateTransaction()" class="form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" [(ngModel)]="newTransaction.name" required>
+                </div>
+                <div class="form-group">
+                    <label for="dateTime">Date and Time:</label>
+                    <input type="datetime-local" id="dateTime" name="dateTime" [(ngModel)]="newTransaction.dateTime"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" name="amount" [(ngModel)]="newTransaction.amount" required
+                        step="0.01" min="0" pattern="^\d+(\.\d{1,2})?$">
+                </div>
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category" [(ngModel)]="newTransaction.category" required>
+                        <option [ngValue]="0">Food & Drink</option>
+                        <option [ngValue]="1">Rent</option>
+                        <option [ngValue]="2">Utilities</option>
+                        <option [ngValue]="3">Entertainment</option>
+                        <option [ngValue]="4">Travel</option>
+                        <option [ngValue]="5">Transportation</option>
+                        <option [ngValue]="6">Medical</option>
+                        <option [ngValue]="7">Groceries</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">{{ updating ? 'Update Transaction' : 'Create Transaction'
+                    }}</button>
+            </form>
+            <button (click)="clearForm()" class="btn btn-primary">Clear</button>
+
+        </div>
+
+        <div class="transaction-list">
+            <ul class="list-group">
+                <li *ngFor="let transaction of transactions" class="list-group-item">
+                    <div class="transaction-top">
+                        <div class="transaction-name">{{ transaction.name }}</div>
+                        <div class="transaction-amount">${{ transaction.amount | number:'1.2-2' }}</div>
+                    </div>
+                    <div class="transaction-bottom">
+                        <div class="transaction-date">{{ transaction.dateTime | date:'longDate' }}</div>
+                        <div class="transaction-category">{{ getCategoryName(transaction.category) }}</div>
+                    </div>
+                    <i class="bi bi-trash" (click)="deleteTransaction(transaction.id)"></i>
+                    <i class="bi bi-pencil" (click)="selectTransaction(transaction)"></i>
+                </li>
+                <li *ngIf="!transactions || !transactions.length" class="list-group-item no-transactions-message">
+                    <p>No transactions available.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
